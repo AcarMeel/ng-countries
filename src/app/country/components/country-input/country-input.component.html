@@ -1,11 +1,12 @@
 <form autocomplete="off" (ngSubmit)="search()">
-  <label for="country" class="form-label">Country Name</label>
+  <label for="country" class="form-label">{{ inputLabel }}</label>
   <input
     id="country"
     type="text"
     name="term"
-    placeholder="Search Country"
+    [placeholder]="inputPlaceholder"
     class="form-control"
     [(ngModel)]="searchTerm"
+    (input)="onKeyPressed()"
   />
 </form>

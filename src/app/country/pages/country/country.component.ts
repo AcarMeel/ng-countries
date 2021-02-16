@@ -31,4 +31,6 @@ export class CountryComponent implements OnInit {
       }
     );
   }
+
+  public suggestions(searchTerm: string): void {}
 }

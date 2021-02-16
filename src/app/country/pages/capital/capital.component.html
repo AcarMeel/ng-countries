@@ -1,1 +1,22 @@
-<p>capital works!</p>
+<h2>Capital</h2>
+<hr />
+<div class="row">
+  <div class="col">
+    <app-country-input
+      [inputLabel]="'Capital Name'"
+      [inputPlaceholder]="'Search Capital'"
+      (onEnter)="search($event)"
+      (onDebounce)="suggestions($event)"
+    ></app-country-input>
+  </div>
+</div>
+<hr />
+
+<div *ngIf="isError" class="alert alert-danger">
+  No results match the search criteria <strong>{{ searchTerm }}</strong>
+</div>
+<div *ngIf="!isError && countries.length > 0" class="row">
+  <div class="col">
+    <app-country-table [countries]="countries"></app-country-table>
+  </div>
+</div>
