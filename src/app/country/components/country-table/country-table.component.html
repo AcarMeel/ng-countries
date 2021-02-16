@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Flag</th>
+      <th scope="col">Name</th>
+      <th scope="col">Population</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let country of countries; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>
+        <img [src]="country.flag" [alt]="country.name" class="small-flag" />
+      </td>
+      <td>{{ country.name }}</td>
+      <td>{{ country.population | number }}</td>
+      <td>
+        <a href="" [routerLink]="['/country', country.alpha2Code]">more...</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
