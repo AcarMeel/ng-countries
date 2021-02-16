@@ -18,5 +18,9 @@ export class CountryService {
     public searchCountryByCapital(capital: string): Observable<CountryResponse[]> {
         return this.http.get<CountryResponse[]>(`${this.API_URL}/capital/${capital}`);
     }
+
+    public searchCountryByAlphaCode(alpha: string): Observable<CountryResponse> {
+        return this.http.get<CountryResponse>(`${this.API_URL}/alpha/${alpha}`);
+    }
     
 }

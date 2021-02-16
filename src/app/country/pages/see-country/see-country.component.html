@@ -1,1 +1,47 @@
-<p>see-country works!</p>
+<div *ngIf="!country; else showCountry" class="alert alert-info">
+  Wait please...
+</div>
+
+<ng-template #showCountry>
+  <div class="row">
+    <div class="col-12">
+      <h1>
+        Country: <small>{{ country?.name }}</small>
+      </h1>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <h3>Country Flag</h3>
+        <img
+          [src]="country?.flag"
+          [alt]="country?.name"
+          class="img-thumbnail"
+        />
+      </div>
+      <div class="col">
+        <h3>Information</h3>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Population:</strong> {{country?.population}}</li>
+          <li class="list-group-item"><strong>Numeric Code:</strong> {{country?.numericCode}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col mt-3">
+          <span class="badge bg-primary me-1">{{ country?.translations.de}}</span>
+          <span class="badge bg-primary me-1">{{ country?.translations.es}}</span>
+          <span class="badge bg-primary me-1">{{ country?.translations.fr}}</span>
+          <span class="badge bg-primary me-1">{{ country?.translations.ja}}</span>
+          <span class="badge bg-primary me-1">{{ country?.translations.it}}</span>
+          <span class="badge bg-primary me-1">{{ country?.translations.br}}</span>
+          <span class="badge bg-primary me-1">{{ country?.translations.pt}}</span>
+          <span class="badge bg-primary me-1">{{ country?.translations.nl}}</span>
+          <span class="badge bg-primary me-1">{{ country?.translations.hr}}</span>
+          <span class="badge bg-primary me-1">{{ country?.translations.fa}}</span>
+      </div>
+  </div>
+  <pre class="mt-5">
+      {{ country | json }}
+  </pre>
+</ng-template>
