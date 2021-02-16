@@ -22,5 +22,9 @@ export class CountryService {
     public searchCountryByAlphaCode(alpha: string): Observable<CountryResponse> {
         return this.http.get<CountryResponse>(`${this.API_URL}/alpha/${alpha}`);
     }
+
+    public searchCountryByRegion(region: string): Observable<CountryResponse[]> {
+        return this.http.get<CountryResponse[]>(`${this.API_URL}/region/${region}`);
+    }
     
 }

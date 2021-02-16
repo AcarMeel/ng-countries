@@ -1,1 +1,22 @@
-<p>region works!</p>
+<h3>Search by region <small></small></h3>
+<hr />
+<h5>Select the Region</h5>
+
+<div class="row">
+  <div class="col">
+    <button
+      [class.btn-success]="activeRegion === region"
+      [class.btn-outline-primary]="activeRegion !== region"
+      (click)="searchByRegion(region)"
+      class="btn me-3"
+      *ngFor="let region of regions"
+    >
+      {{ region }}
+    </button>
+  </div>
+</div>
+<hr>
+<ng-container *ngIf="countries.length > 0">
+    <app-country-table [countries]="countries"></app-country-table>
+</ng-container>
+
