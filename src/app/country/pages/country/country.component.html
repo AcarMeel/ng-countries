@@ -8,6 +8,14 @@
     ></app-country-input>
   </div>
 </div>
+<ul class="list-group">
+  <li
+    *ngFor="let suggestedCountry of suggestedCountries"
+    class="list-group-item list-group-item-action"
+  >
+    <a class="nav-link" [routerLink]="['/country', suggestedCountry.alpha2Code]" routerLinkActive="router-link-active" >{{ suggestedCountry.name }}</a>
+  </li>
+</ul>
 <hr />
 
 <div *ngIf="isError" class="alert alert-danger">
